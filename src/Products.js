@@ -9,6 +9,6 @@ export default function Products() {
         dispatch(fetchAll())
     },[])
     return <ul>
-        {products.map(p => <li key={p.id}>{p.title} <img src={'http://192.168.0.139:3001/img/' + p.images[0]} alt=""/></li>)}
+        {products.map(p => <li key={p.id}>{p.title} <img src={p.image} alt=""/></li>)}
     </ul>
 }
