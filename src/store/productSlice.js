@@ -9,8 +9,8 @@ const initialState = {
 
 export const fetchAll = createAsyncThunk(
     'product/fetchAll',
-    async () => {
-        const response = await productsApi.getProducts()
+    async (payload) => {
+        const response = await productsApi.getProducts(payload)
         return response.data
     }
 )
@@ -22,12 +22,12 @@ export const productSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAll.fulfilled, (state, action) => {
-            state.items.push(...action.payload.data)
-            state.meta = action.payload.meta
+            state.items= action.payload.data;
+            state.meta = action.payload.meta;
         })
     },
 })
 
-// export const {fetchAll } = productSlice.actions
 export const productSelect = (state) => state.product.items;
+export const metaSelect = (state) => state.product.meta;
 export default productSlice.reducer

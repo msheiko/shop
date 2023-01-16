@@ -5,8 +5,13 @@ import {
 import Products from "./components/products/Index";
 
 export default createBrowserRouter([
-        {
-            path: "/",
-            element: <Products/>,
-        }
-    ]);
+    {
+        path: "/",
+        element: <Products/>,
+    },
+    {
+        path: "/products",
+
+        element: <Products/>,
+    }
+]);
