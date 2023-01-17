@@ -4,7 +4,7 @@ export default function Pagination({meta}){
     return (
         <nav>
             <ul className="pagination">
-                <li className="page-item" }>
+                <li className="page-item">
                     <NavLink className="page-link" to={`/products?page=${meta.current_page-1}`} aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </NavLink>
