@@ -1,4 +1,5 @@
 import Rating from "./rating";
+import {NavLink} from "react-router-dom";
 
 export default function Card({product}){
     return (
@@ -7,7 +8,7 @@ export default function Card({product}){
                 <img src={product.image} alt=""/>
             </div>
             <div className="info-wrap">
-                <p className='title'> {product.title} {product.screen_size}" RAM {product.ram} {product.hsard}GB</p>
+                <NavLink to={`/products/${product.id}`}>{product.title} {product.screen_size}" RAM {product.ram} {product.hsard}GB</NavLink>
                 <Rating value={product.rating} />
             </div>
             <div className="bottom-wrap">

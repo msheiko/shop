@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 
 import Products from "./components/products/Index";
+import View from "./components/product/View";
 
 export default createBrowserRouter([
     {
@@ -11,7 +12,11 @@ export default createBrowserRouter([
     },
     {
         path: "/products",
-
         element: <Products/>,
+    },
+    {
+        path: "/products/:id",
+        element: <View/>,
     }
+
 ]);
