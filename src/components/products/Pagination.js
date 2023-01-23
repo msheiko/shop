@@ -9,7 +9,7 @@ export default function Pagination({meta}){
                         <span aria-hidden="true">&laquo;</span>
                     </NavLink>
                 </li>
-                {_.range(1,meta.total_pages).map( (p)=> <li className="page-item"><NavLink  className={() => (p===meta.current_page ? 'active page-link' : 'page-link')} to={`/products?page=${p}`}>{p}</NavLink></li>)}
+                {_.range(1,meta.total_pages).map( (p,i)=> <li className="page-item" key={i}><NavLink  className={() => (p===meta.current_page ? 'active page-link' : 'page-link')} to={`/products?page=${p}`}>{p}</NavLink></li>)}
                 <li className="page-item">
                     <NavLink className="page-link" to={`/products?page=${meta.current_page+1}`} aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
