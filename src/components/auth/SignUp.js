@@ -1,20 +1,22 @@
 import '../../styles/auth.css';
 import {useState} from "react";
 import api from '../../api/products'
+import {useDispatch} from "react-redux";
+import {signIn} from "../../store/userSlice";
 
-export default function SignUpForm() {
+export default function SignUpForm({setToken}) {
 
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState([]);
-
+    const dispatch = useDispatch();
     function formSubmit(e) {
         e.preventDefault();
         api.register({name, email, password})
             .then(res => {
-                localStorage.clear();
-                localStorage.setItem('token', res.data.access_token);
+                setToken( res.data.access_token);
+                dispatch(()=>signIn(res.data.user))
                 setErrors([])
             })
             .catch(res => {
