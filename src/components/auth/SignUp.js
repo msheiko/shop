@@ -26,7 +26,7 @@ export default function SignUpForm({setToken}) {
 
     }
 
-    return (<form className='sign-up-form' onSubmit={formSubmit}>
+    return (<form onSubmit={formSubmit}>
         <div className="mb-3">
             <label htmlFor="name" className="form-label">Имя</label>
             <input
